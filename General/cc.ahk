@@ -2,6 +2,6 @@
 Suspend, Permit
 Loop 50                            
 {                                  
-  AddChatMessage("")
+  AddChatMessage()
 }
 Return     

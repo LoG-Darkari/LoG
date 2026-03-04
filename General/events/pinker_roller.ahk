@@ -24,7 +24,7 @@ SendChat("/echat Es wird Zeit eure Rollerfahrskills unter Beweis zustellen, aber
 Sleep 5000
 SendChat("/echat Wir stellen euch einen pinken Roller mit vollem Tank bereit.")
 Sleep 5000
-SendChat("/echat Der Roller wartet hier auf euch:" start ")
+SendChat("/echat Der Roller wartet hier auf euch:" start ".")
 Sleep 5000
 SendChat("/echat Eure Aufgabe ist es mit dem Roller zum " ziel " zu fahren und ""Bin da"" in den Chat zu schreiben.")
 Sleep 5000
@@ -51,7 +51,7 @@ if (winner != "" AND winner != GetPlayerName() AND id != "" AND !IsNPCById(id) A
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-cpu(winner, pr_gewinn, "Gewinn: Pinker Roller")
+SendChat("/eu "winner, " ", pr_gewinn, "Gewinn: Pinker Roller")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit dem pinken Roller.")
 Sleep 5000

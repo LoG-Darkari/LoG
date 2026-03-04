@@ -86,11 +86,11 @@ if (q_counter < q_runden && q_counter > 0)
         winner := GetPlayerNameById(winner)
     }
     id := GetPlayerIdByName(winner)
-    if (winner != ""   AND winner != GetUsername() AND id != "" AND !IsNPCById(id) AND q_gewinn > 0 ) 
+    if (winner != ""   AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) AND q_gewinn > 0 ) 
     {
         SendChat("/echat Herzlichen Glücckwunsch an " winner "!")
         Sleep 500
-        cpu(winner, q_gewinn, "Gewinn: Buchstabensalat")
+        SendChat("/eu "winner, " ", q_gewinn, "Gewinn: Buchstabensalat")
         Sleep 5000
         SendChat("/echat Die Lösung war: " q_solution)
         q_word := PlayerInput("Frage Nr " q_counter " : ")
@@ -110,7 +110,7 @@ if winner is digit
     winner := GetPlayerNameById(winner)
 }
 id := GetPlayerIdByName(winner)
-if (winner != ""  AND q_gewinn > 0 AND winner != GetUsername() AND id != "" AND !IsNPCById(id) )
+if (winner != ""  AND q_gewinn > 0 AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) )
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner "!")
 Sleep 500

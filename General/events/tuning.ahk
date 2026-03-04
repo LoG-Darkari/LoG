@@ -68,7 +68,7 @@ While, i <= t_winners AND i != 0
          AddChatMessage("Du musst eine Zahl eingeben!")
          z :=PlayerInput("Gewinner Platz Nr " i " : ")
      }
-    cpu(z, t_prizes[i], "Gewin Tuningevent")
+    SendChat("/eu "z," ", t_prizes[i], "Gewin Tuningevent")
     SendChat("/echat Der " i ". Platz geht an...")
     Sleep, 5000
     SendChat(getPlayerNamebyID(z) "! Herzlichen Glückwunsch.")

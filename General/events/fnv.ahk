@@ -50,11 +50,11 @@ if winner is digit
     winner := GetPlayerNameById(winner)
 }
 id := GetPlayerIdByName(winner)
-if (winner != "" AND winner != GetUsername() AND id != "" AND !IsNPCById(id) AND fnv_gewinn > 0)
+if (winner != "" AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) AND fnv_gewinn > 0)
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-cpu(winner, fnv_gewinn, "Gewinn: Finde den News Van")
+SendChat("/eu "winner, " ", fnv_gewinn, "Gewinn: Finde den News Van")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit Finde den News Van.")
 Sleep 5000

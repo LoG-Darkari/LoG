@@ -45,11 +45,11 @@ if winner is digit
     winner := GetPlayerNameById(winner)
 }
 id := GetPlayerIdByName(winner)
-if (winner != "" AND winner != GetUsername() AND id != "" AND !IsNPCById(id) AND fds_gewinn > 0)
+if (winner != "" AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) AND fds_gewinn > 0)
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-cpu(winner, fds_gewinn, "Gewinn: Fang den News Sultan")
+SendChat("/eu "winner," ", fds_gewinn, "Gewinn: Fang den News Sultan")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit Fang den News Sultan.")
 Sleep 5000

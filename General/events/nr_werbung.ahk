@@ -1,19 +1,19 @@
 :?:/nrwerbung::
 Suspend, Permit
 SendChat("/echat + + + Werbung + + +")
-Sleep, 5000
+Sleep, 1000
 SendChat("/echat Du willst für mehr Unterhaltung auf LoG sorgen?")
-Sleep, 5000
+Sleep, 1000
 SendChat("/echat Du hast Freude daran Events zu veranstalten und News zu schreiben?")
-Sleep, 5000
-SendChat("/echat Dann nutz die Chance, um dich bei den News Reportern zu bewerben!")
-Sleep, 5000
+Sleep, 1000
+SendChat("/echat Dann nutz die Chance, um dich bei der Los Santos Entertainment Agency zu bewerben!")
+Sleep, 1000
 SendChat("/echat Wir bieten attraktive Karierrechancen und ein familiäres Umfeld.")
-Sleep, 5000
+Sleep, 1000
 SendChat("/echat Bei Fragen steht dir der Leader zur Verfügung.")
-Sleep, 5000
+Sleep, 1000
 SendChat("/echat Wir freuen uns auf deine Bewerbung!")
-Sleep, 5000
+Sleep, 1000
 SendChat("/echat + + + Werbung Ende + + +")
 Sleep, 500
 SendInput, {F8}

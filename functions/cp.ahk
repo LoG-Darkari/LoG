@@ -20,7 +20,7 @@ cp_login()
 {
 createHTTPObject()
 user := GetPlayerName()
-pw := "$"
+pw := PlayerInput("CP-Passwort: ")
 pw := UrlEncode(pw)
 RequestType 	:= "POST"
 URL 			:= "https://samp.cp.life-of-german.org/login"

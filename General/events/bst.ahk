@@ -95,7 +95,7 @@ if (bst_counter < bst_runden && bst_counter > 0)
         winner := GetPlayerNameById(winner)
     }
     id := GetPlayerIdByName(winner)
-    if (winner != ""   AND winner != GetUsername() AND id != "" AND !IsNPCById(id) AND bst_gewinn > 0)
+    if (winner != ""   AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) AND bst_gewinn > 0)
     {
         SendChat("/echat Herzlichen Glückwunsch an " winner " !")
         Sleep 500
@@ -119,11 +119,11 @@ if winner is digit
     winner := GetPlayerNameById(winner)
 }
 id := GetPlayerIdByName(winner)
-if (winner != ""  AND bst_gewinn > 0 AND winner != GetUsername() AND id != "" AND !IsNPCById(id) )
+if (winner != ""  AND bst_gewinn > 0 AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) )
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-cpu(winner, bst_gewinn, "Gewinn: Buchstabensalat")
+SendChat("/eu "winner," ", bst_gewinn, "Gewinn: Buchstabensalat")
 Sleep 5000
 SendChat("/echat Die Lösung war: " bst_word)
 bst_word := ""
@@ -133,7 +133,7 @@ bst_runden := -1
 Sleep 5000
 SendChat("/echat So das war es erstmal mit dem Denksport. Wir hoffen ihr hattet Spaß!")
 Sleep 5000
-SendChat("/echat Noch weiterhin viel Spaߠauf LoG wünschen die News Reporter.")
+SendChat("/echat Noch weiterhin viel Spaß auf LoG wünschen die News Reporter.")
 Sleep 5000
 SendChat("/echat |____________| Buchstabensalat Ende  |____________| ")
 running_evnt := 0
