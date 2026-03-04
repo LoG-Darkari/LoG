@@ -49,7 +49,7 @@ if (winner != "" AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) 
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-SendChat("/eu "winner," ", fds_gewinn, "Gewinn: Fang den News Sultan")
+SendChat("/eu "winner " " fds_gewinn " Gewinn: Fang den News Sultan")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit Fang den News Sultan.")
 Sleep 5000

@@ -8,9 +8,9 @@ AddChatMessage("{00BFFF}Wo soll gesucht werden")
 location := PlayerInput("Location: ")
 SendChat("/stats")
 sleep 150
-nr := GetDialogLine(15)
+nr := GetDialogLine(16)
 nr := SubStr(nr, 33)
-sleep 150
+sleep 50
 SendInput, {enter}
 ;AddChatMessage("{00BFFF}Wie lautet deine Handynummer?")
 ;nr := PlayerInput("Handynummer: ")
@@ -54,7 +54,7 @@ if (winner != "" AND winner != GetPlayerName()  AND id != "" AND !IsNPCById(id) 
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-SendChat("/eu "winner, " ", fnv_gewinn, "Gewinn: Finde den News Van")
+SendChat("/eu "winner " " fnv_gewinn " Gewinn: Finde den News Van")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit Finde den News Van.")
 Sleep 5000

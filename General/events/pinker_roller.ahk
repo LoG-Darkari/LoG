@@ -51,7 +51,7 @@ if (winner != "" AND winner != GetPlayerName() AND id != "" AND !IsNPCById(id) A
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-SendChat("/eu "winner, " ", pr_gewinn, "Gewinn: Pinker Roller")
+SendChat("/eu "winner " " pr_gewinn " Gewinn: Pinker Roller")
 Sleep 5000
 SendChat("/echat Und somit war es das mal wieder mit dem pinken Roller.")
 Sleep 5000

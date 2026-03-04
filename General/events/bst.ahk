@@ -123,7 +123,7 @@ if (winner != ""  AND bst_gewinn > 0 AND winner != GetPlayerName()  AND id != ""
 {
 SendChat("/echat Herzlichen Glückwunsch an " winner " !")
 Sleep 500
-SendChat("/eu "winner," ", bst_gewinn, "Gewinn: Buchstabensalat")
+SendChat("/eu " winner " " bst_gewinn " Gewinn: Buchstabensalat")
 Sleep 5000
 SendChat("/echat Die Lösung war: " bst_word)
 bst_word := ""

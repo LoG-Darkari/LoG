@@ -90,7 +90,7 @@ if (q_counter < q_runden && q_counter > 0)
     {
         SendChat("/echat Herzlichen Glücckwunsch an " winner "!")
         Sleep 500
-        SendChat("/eu "winner, " ", q_gewinn, "Gewinn: Buchstabensalat")
+        SendChat("/eu "winner " " q_gewinn " Gewinn: Buchstabensalat")
         Sleep 5000
         SendChat("/echat Die Lösung war: " q_solution)
         q_word := PlayerInput("Frage Nr " q_counter " : ")

@@ -46,6 +46,9 @@ SendMode Input
 #Include, ./general/events/quiz.ahk
 #Include, ./general/events/servicead.ahk
 #Include, ./general/events/tuning.ahk
+
+;include factions
+#Include, ./Factions/neutral/lsmd/skinchange.ahk 
 ;Update stuff
 
 /*
@@ -95,3 +98,16 @@ Menu, Tray, Add , Keybinder beenden, exi
 Exi:
 ExitApp
 */
+
+F11::
+Suspend, Permit
+lsmd_skinchange()
+Return
+
+F12::
+Suspend, Permit
+AddChatMessage("{FFFFFF}Log-Level")
+AddChatMessage("{B22222}FEHLER: {FFFFFF} TEST")
+AddChatMessage("{FACA0F}Warnung: {FFFFFF} TEST")
+AddChatMessage("{45B6FE}Info: {FFFFFF} TEST")
+Return
