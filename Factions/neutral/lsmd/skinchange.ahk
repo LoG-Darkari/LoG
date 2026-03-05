@@ -22,7 +22,7 @@ if (cskin = 277 OR 278 or 279)
  {
     cp_login()
  }
- cp_action("POST","https://samp.cp.life-of-german.org/ingameshop/skin/factionSkinID/279")
+ cp_action("POST","https://samp.cp.life-of-german.org/ingameshop/skin/factionSkinID/274")
  cp_logout()
  Return
 
