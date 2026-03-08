@@ -34,7 +34,9 @@ SendMode Input
 #Include, ./general/cc.ahk
 #Include, ./general/bj.ahk
 #Include, ./general/cp_banking.ahk
-
+#Include, ./general/help.ahk
+#Include, ./general/join.ahk
+#Include, ./general/freundesliste.ahk
 ;include events
 #Include, ./general/events/bst.ahk
 #Include, ./general/events/bst.ahk
@@ -99,9 +101,41 @@ Exi:
 ExitApp
 */
 
+F2::
+Suspend, Permit
+ShowDialog(1, "TEST", "TEST", "OK", "LOL", 69)
+Return
+
+F3::
+Suspend, Permit
+ShowDialog(2, "TEST", "TEST", "OK", "LOL", 69)
+Return
+
+
 F11::
 Suspend, Permit
-lsmd_skinchange()
+if (IsDialogOpen())
+{
+    i := 1
+  FileAppend, "`n", dialogs.txt
+  FileAppend, "`n", dialogs.txt
+  FileAppend, "`n", dialogs.txt
+    n := GetDialogLineCount()
+   AddChatMessage("{45B6FE}Info: {FFFFFF}Dialog gefunden")
+   AddChatMessage(n)
+     dtext := []
+   Loop, %n%
+   {    
+    dtext.Push(GetDialogLine(i))
+    inpt := dtext[i]
+    FileAppend, %inpt%, dialogs.txt
+    FileAppend, "`n", dialogs.txt
+    i++
+
+}
+AddChatMessage("Vorgang abgeschlossen")
+Return
+}
 Return
 
 F12::
@@ -110,6 +144,7 @@ AddChatMessage("{FFFFFF}Log-Level")
 AddChatMessage("{B22222}FEHLER: {FFFFFF} TEST")
 AddChatMessage("{FACA0F}Warnung: {FFFFFF} TEST")
 AddChatMessage("{45B6FE}Info: {FFFFFF} TEST")
+ShowDialog(4, "TEST", "TEST", "OK", "LOL", 69)
 Return
 
 :?:/help keybinder::

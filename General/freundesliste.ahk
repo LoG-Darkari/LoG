@@ -5,29 +5,34 @@
 
 global friendStates := []
 global fl_message := 1
-SetTimer, Freunde, 100
+SetTimer, Freunde, On
 
 initFraks()
 {
 frak := {}
 frak.Insert("ZFFFF00","SALA")
 frak.Insert("ZFFFFFF","Zivilist")
-frak.Insert("Z222222","OFFLINE") 
-frak.Insert("Z6495ED","SAPD") 
-frak.Insert("Z33CC00","Army") 
-frak.Insert("Z660066","Ballas") 
-frak.Insert("Z006600","Grove") 
-frak.Insert("Z795F37","Terroristen") 
+frak.Insert("Z222222","")
+frak.Insert("Z6495ED","SAPD")
+frak.Insert("Z0000FF","FBI")
+frak.Insert("Z33CC00","Army")
+frak.Insert("Z660066","Ballas")
+frak.Insert("Z006600","Grove")
+frak.Insert("Z666666","(Russen)")
+frak.Insert("ZFFFF80","Triaden")
+frak.Insert("Z795F37","Terroristen")
 frak.Insert("Z00FFFF","(Support)")
-frak.Insert("ZFF3333","Sanitäter") 
-frak.Insert("Z009966","News Reporter") 
+frak.Insert("ZCC9966","SAAP")
+frak.Insert("ZFF3333","LSMD")
+frak.Insert("Z009966","(EVENT)")
 frak.Insert("Z993300","Hitman")
-frak.Insert("ZCCDA6D","(Race)") 
-frak.Insert("ZFF9900","(Wanted)") 
+frak.Insert("ZCCDA6D","(Race)")
+frak.Insert("ZFF9900","(Wanted)")
 frak.Insert("ZFF1800","(GGB)")
 frak.Insert("Z00CC00","(GGB)")
-frak.Insert("ZFD824D","Bodyguard")
+frak.Insert("ZFF99CC","Yakuza")
 frak.Insert("ZFFD400","Paintball")
+frak.Insert("ZFD824D","Bodyguard")
 frak.Insert("ZFA58AC","Gaylord")
 Return frak
 }
@@ -45,10 +50,10 @@ string := ""
       name := A_LoopField
       id := getPlayerIdByName(name)
       if (id != -1) {
-        color := getPColor(id)
-        color := colorToStr(color)
+        color := GetPlayerColor(id)
+        ;color := colorToStr(color)
         color := "Z"+color
-        AddChatMessage(color)
+        ;AddChatMessage(color)
         level := GetPlayerScoreById(ID)
         statusColor := "{00CD00}"
       }
@@ -67,7 +72,42 @@ string := ""
   string := StrReplace(string, "9999", "---")
   string := "ID`tName`tFraktion`tLevel`n" . string
 Sleep 300
-showDialog(5, "Freundesliste", string, "Schließen")
+showDialog(5, "Freundesliste", string, "SchlieÃŸen")
+return
+
+:?:/fln::
+Suspend, Permit
+;frak := initFraks()
+string := ""
+  Loop, read, freunde.txt 
+    {
+    Loop, parse, A_LoopReadLine, `n, `r 
+    {
+      name := A_LoopField
+      id := getPlayerIdByName(name)
+      if (id != -1) {
+        pc := GetPlayerColor(id)
+        pcs := colorToStr(pc)
+     ;AddChatMessage(pc)
+        level := GetPlayerScoreById(ID)
+        statusColor := "{00CD00}"
+      }
+      else {
+        id := 9999
+        level := 9999
+        color := "Z222222"
+        statusColor := "{D4D4D4}"
+      }    
+      
+       
+    string := % string . statusColor id "`t{FFFFFF}" name "`t" statusColor  level "`n"
+    }
+  }
+    Sort, string, N P9
+  string := StrReplace(string, "9999", "OFFLINE")
+  string := "ID`tName`tLevel`n" . string
+Sleep 300
+showDialog(5, "Freundesliste", string, "SchlieÃŸen")
 return
 
 :?:/fladd::
@@ -80,7 +120,7 @@ if (name == "") {
   AddChatMessage("{FF595E}FEHLER:{FFFFFF} Spielername darf nicht leer sein.")
   return
 }
-if (name == GetUsername())
+if (name == GetPlayerName())
 {
   AddChatMessage("{FF595E} FEHLER: {FFFFFF} Du kannst nicht mit dir selbst befreundet sein.")
   return
@@ -92,13 +132,13 @@ If (GetPlayerIdbyName(name) = -1)
 }
 If (IsNPCById(GetPlayerIDbyName(name)) = 1 )
 {
-    AddChatMessage("{FF595E} FEHLER: {FFFFFF} NPCs können nicht als Freund hinzugefügt werden!")
+    AddChatMessage("{FF595E} FEHLER: {FFFFFF} NPCs kï¿½nnen nicht als Freund hinzugefï¿½gt werden!")
    return
 }
 FileRead, Liste, Freunde.txt
 If not InStr(Liste, name) 
 {
- AddChatMessage("{45B6FE}Info: {FF4500}" name "{FFFFFF} wurde zur Freundesliste hinzugefügt.")
+ AddChatMessage("{45B6FE}Info: {FF4500}" name "{FFFFFF} wurde zur Freundesliste hinzugefï¿½gt.")
 FileAppend, %Name%`n, Freunde.txt
 }
 else 
@@ -147,7 +187,7 @@ AddChatMessage("{45B6FE}Info: {FFFFFF}Deine Freundesliste wurde geleert.")
 return
 
 Freunde:
-if (!WinExist("GTA:SA:MP") || !GetID()) {
+if (!WinExist("GTA:SA:MP") || !GetPlayerId()) {
       friendStates := []
       return
     }

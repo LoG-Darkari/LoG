@@ -3959,19 +3959,24 @@ GetPlayerCity() {
  * @returns Player color as hexadecimal string (e.g., "FF0000" for red), or "FFFFFF" on failure
  */
 GetPlayerColor(playerId) {
-    defaultColor = "FFFFFF"
+    defaultColor = "754871"
 
     if (!checkHandles())
         return defaultColor
 
     playerColor := readDWORD(hGTA, dwSAMP + SAMP_PLAYER_COLOR_OFFSET[sampVersion] + playerId * 4)
+    AddChatMessage("Farbe: " playerColor)
     if (ErrorLevel) {
         ErrorLevel := ERROR_READ_MEMORY
         return defaultColor
     }
 
     hexCode := _intToHex(idColor)
+    AddChatMessage("Farbe: " hexcode)
     rgbhex := SubStr(_intToHex(idColor), 3, 6)
+ AddChatMessage("Farbe: " rgbhex)
+ z := colorToStr(playerColor)
+ AddChatMessage(z)   
     if (StrLen(hexCode) = 6){
         rgbhex := "0000" rgbhex
         StringTrimRight, rgbhex, rgbhex, 2
@@ -3981,7 +3986,7 @@ GetPlayerColor(playerId) {
         StringTrimRight, rgbhex, rgbhex, 2
     }
     StringUpper, playercolor, rgbhex
-    return playercolor
+    return z ;playercolor
 }
 
 _intToHex(int)
