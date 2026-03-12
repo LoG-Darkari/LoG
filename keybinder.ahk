@@ -103,7 +103,9 @@ ExitApp
 
 F2::
 Suspend, Permit
-ShowDialog(1, "TEST", "TEST", "OK", "LOL", 69)
+id := PlayerInput("ID: ")
+color := GetPlayerColor(id)
+AddChatMessage(Color)
 Return
 
 F3::

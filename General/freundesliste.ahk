@@ -10,30 +10,31 @@ SetTimer, Freunde, On
 initFraks()
 {
 frak := {}
-frak.Insert("ZFFFF00","SALA")
-frak.Insert("ZFFFFFF","Zivilist")
-frak.Insert("Z222222","")
-frak.Insert("Z6495ED","SAPD")
-frak.Insert("Z0000FF","FBI")
-frak.Insert("Z33CC00","Army")
-frak.Insert("Z660066","Ballas")
-frak.Insert("Z006600","Grove")
-frak.Insert("Z666666","(Russen)")
-frak.Insert("ZFFFF80","Triaden")
-frak.Insert("Z795F37","Terroristen")
-frak.Insert("Z00FFFF","(Support)")
-frak.Insert("ZCC9966","SAAP")
-frak.Insert("ZFF3333","LSMD")
-frak.Insert("Z009966","(EVENT)")
-frak.Insert("Z993300","Hitman")
-frak.Insert("ZCCDA6D","(Race)")
-frak.Insert("ZFF9900","(Wanted)")
-frak.Insert("ZFF1800","(GGB)")
-frak.Insert("Z00CC00","(GGB)")
-frak.Insert("ZFF99CC","Yakuza")
-frak.Insert("ZFFD400","Paintball")
-frak.Insert("ZFD824D","Bodyguard")
-frak.Insert("ZFA58AC","Gaylord")
+frak.Insert("FFFF00","San Andreas Logistik und Abschleppdienst")
+frak.Insert("FFFFFF","Zivilist")
+frak.Insert("B22222","OFFLINE")
+frak.Insert("6495ED","Los Santos Police Department")
+frak.Insert("1111FF","Federal Bureau of Investigation")
+frak.Insert("33CC00","United States Army")
+frak.Insert("660066","Front Yard Ballas")
+frak.Insert("006600","Grove Street Families")
+frak.Insert("666666","(Russen Mafia)")
+frak.Insert("FFFF80","Triaden Mafia")
+frak.Insert("795F37","Terroristen")
+frak.Insert("00FFFF","(Support)")
+frak.Insert("CC9966","San Andreas Abschlepp- un Pannendienst")
+frak.Insert("FF3333","Los Santos Medical Department")
+frak.Insert("009966","(EVENT)")
+frak.Insert("993300","Hitman")
+frak.Insert("CCDA6D","(Race)")
+frak.Insert("FF9900","(Wanted)")
+frak.Insert("FF1800","(GGB Team 1)")
+frak.Insert("00CC00","(GGB Team 2)")
+frak.Insert("DB7B9D","Yakuza Mafia") ;ZFF99CC
+frak.Insert("FFD400","(Paintball)")
+frak.Insert("FD824D","Bodyguard")
+frak.Insert("FA58AC","(Das ist Pink)")
+frak.Insert("27D67C","(Social Media)")
 Return frak
 }
 Return
@@ -52,18 +53,18 @@ string := ""
       if (id != -1) {
         color := GetPlayerColor(id)
         ;color := colorToStr(color)
-        color := "Z"+color
-        ;AddChatMessage(color)
+        ;color := "Z"+color
+        ;AddChatMessage("ID: " id " Farbe: "color)
         level := GetPlayerScoreById(ID)
         statusColor := "{00CD00}"
       }
       else {
         id := 9999
         level := 9999
-        color := "Z222222"
+        color := "B22222"
         statusColor := "{D4D4D4}"
       }    
-       StringTrimLeft, tcolor, color, 1
+      ; StringTrimLeft, tcolor, color, 1
        
             string := % string . "{" tcolor "}" id "`t{FFFFFF}" name "`t{" tcolor "}" frak[color] "`t" statusColor level "`n"
     }
@@ -95,7 +96,7 @@ string := ""
       else {
         id := 9999
         level := 9999
-        color := "Z222222"
+        color := "222222"
         statusColor := "{D4D4D4}"
       }    
       
@@ -194,7 +195,7 @@ if (!WinExist("GTA:SA:MP") || !GetPlayerId()) {
     if (!WinActive("GTA:SA:MP")) {
       return
     }
-    IniRead, fl_message, %ini%, Einstellungen, Freunde
+    fl_message := 1
 If(fl_message == 1)
 {
   Loop, read, Freunde.txt 
