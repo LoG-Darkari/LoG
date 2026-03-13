@@ -26,7 +26,7 @@ printJoinDisconnect() {
                            AddChatMessage("{CEFF00}**** " players[i] " (Logout)")
                         }
                         players[i] := name
-                        AddChatMessage("{CEFF00}**** " players[i] " (LOGIN)")
+                        AddChatMessage("{CEFF00}**** " players[i] " [ID: " i "] (LOGIN)")
                     }
                 }
                 else {

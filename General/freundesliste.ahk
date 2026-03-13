@@ -35,6 +35,7 @@ frak.Insert("FFD400","(Paintball)")
 frak.Insert("FD824D","Bodyguard")
 frak.Insert("FA58AC","(Das ist Pink)")
 frak.Insert("27D67C","(Social Media)")
+frak.Insert("0","(ERROR)")
 Return frak
 }
 Return
@@ -52,9 +53,6 @@ string := ""
       id := getPlayerIdByName(name)
       if (id != -1) {
         color := GetPlayerColor(id)
-        ;color := colorToStr(color)
-        ;color := "Z"+color
-        ;AddChatMessage("ID: " id " Farbe: "color)
         level := GetPlayerScoreById(ID)
         statusColor := "{00CD00}"
       }
@@ -64,7 +62,6 @@ string := ""
         color := "B22222"
         statusColor := "{D4D4D4}"
       }    
-      ; StringTrimLeft, tcolor, color, 1
        
             string := % string . "{" tcolor "}" id "`t{FFFFFF}" name "`t{" tcolor "}" frak[color] "`t" statusColor level "`n"
     }
@@ -72,41 +69,6 @@ string := ""
     Sort, string, N P9
   string := StrReplace(string, "9999", "---")
   string := "ID`tName`tFraktion`tLevel`n" . string
-Sleep 300
-showDialog(5, "Freundesliste", string, "Schließen")
-return
-
-:?:/fln::
-Suspend, Permit
-;frak := initFraks()
-string := ""
-  Loop, read, freunde.txt 
-    {
-    Loop, parse, A_LoopReadLine, `n, `r 
-    {
-      name := A_LoopField
-      id := getPlayerIdByName(name)
-      if (id != -1) {
-        pc := GetPlayerColor(id)
-        pcs := colorToStr(pc)
-     ;AddChatMessage(pc)
-        level := GetPlayerScoreById(ID)
-        statusColor := "{00CD00}"
-      }
-      else {
-        id := 9999
-        level := 9999
-        color := "222222"
-        statusColor := "{D4D4D4}"
-      }    
-      
-       
-    string := % string . statusColor id "`t{FFFFFF}" name "`t" statusColor  level "`n"
-    }
-  }
-    Sort, string, N P9
-  string := StrReplace(string, "9999", "OFFLINE")
-  string := "ID`tName`tLevel`n" . string
 Sleep 300
 showDialog(5, "Freundesliste", string, "Schließen")
 return

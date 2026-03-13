@@ -1,4 +1,4 @@
-:?:/weste::
+:?:/am::
 Suspend, Permit
 x := GetPlayerArmor()
 AddChatMessage("Weste: " +x)
