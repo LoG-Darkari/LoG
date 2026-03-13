@@ -3965,18 +3965,18 @@ GetPlayerColor(playerId) {
         return defaultColor
 
     playerColor := readDWORD(hGTA, dwSAMP + SAMP_PLAYER_COLOR_OFFSET[sampVersion] + playerId * 4)
-    AddChatMessage("Farbe: " playerColor)
+   ; AddChatMessage("Farbe: " playerColor)
     if (ErrorLevel) {
         ErrorLevel := ERROR_READ_MEMORY
         return defaultColor
     }
 
     hexCode := _intToHex(idColor)
-    AddChatMessage("Farbe: " hexcode)
+    ;AddChatMessage("Farbe: " hexcode)
     rgbhex := SubStr(_intToHex(idColor), 3, 6)
- AddChatMessage("Farbe: " rgbhex)
+ ;AddChatMessage("Farbe: " rgbhex)
  z := colorToStr(playerColor)
- AddChatMessage(z)   
+ ;AddChatMessage(z)   
     if (StrLen(hexCode) = 6){
         rgbhex := "0000" rgbhex
         StringTrimRight, rgbhex, rgbhex, 2
